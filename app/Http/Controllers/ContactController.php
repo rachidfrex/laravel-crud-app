@@ -16,14 +16,14 @@ class ContactController extends Controller
     }
     public function addnew_function_traitement(Request $request){
         $request->validate([
-            'Fnom'=>'required',
+            'Fnom'=>'required ',
             'Lnom'=>'required',
-            'email'=>'required',
+            'email'=>'required|email',
             'phone'=>'required',
             'adress'=>'required',
             'selectOption'=>'required',
         ]);
-        $profil = profil::find($request->id);
+        $profil = new profil();
         $profil->Fnom = $request->Fnom;
         $profil->Lnom = $request->Lnom;
         $profil->email = $request->email;

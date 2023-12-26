@@ -34,8 +34,9 @@
         <div class="px-5 py-3 text-lg flex items-center justify-between rounded-se-[7px]  rounded-tl-[7px]    bg-sky-900">
             <h3 class="text-white text-2xl ">All Contact</h3>
             <button
-                class="ml-4 border-[2px] rounded-[7px] border-green-700 text-lg bg-green-700 text-white px-3 py-1">Add
-                New</button>
+                class="ml-4 border-[2px] rounded-[7px] border-green-700 text-lg bg-green-700 text-white px-3 py-1">
+            <a href="/addnew">Add New</a>
+            </button>
         </div>
         <!-- ........................................ -->
         <div class="flex my-4 justify-end items-center mx-5  ">
@@ -60,62 +61,54 @@
                 <thead class="text-xs text-black uppercase bg-gray-50  ">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Product name
+                            id 
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Color
+                            name
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Category
+                            phone
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Price
+                            email
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            company
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            action
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b ">
-                        <th scope="row" class="px-6 py-4 font-medium  text-blackwhite space-nowrap ">
-                            Apple MacBook Pro 17"
-                        </th>
-                        <td class="px-6 py-4">
-                            Silver
-                        </td>
-                        <td class="px-6 py-4">
-                            Laptop
-                        </td>
-                        <td class="px-6 py-4">
-                            $2999
-                        </td>
-                    </tr>
+                    @foreach ($profils as $profil )
                     <tr class=" border-b bg-gray-50 ">
                         <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap ">
-                            Microsoft Surface Pro
+                        {{$profil->id}}
                         </th>
                         <td class="px-6 py-4">
-                            White
+                            {{$profil->Fnom}}
                         </td>
                         <td class="px-6 py-4">
-                            Laptop PC
+                            {{$profil->phone}}
                         </td>
                         <td class="px-6 py-4">
-                            $1999
+                            {{$profil->email}}
                         </td>
+                        <td class="px-6 py-4">
+                            {{$profil->selectOption}}
+                        </td>
+                        <td class="px-6 py-4">
+                            <button class="border-[2px] rounded-[7px] border-green-700 text-lg bg-green-700 text-white px-3 py-1">
+                                <a  href="/update/{{$profil->id}}">Edit</a>
+                            </button>
+                            <button class="border-[2px] rounded-[7px] border-red-700 text-lg bg-red-700 text-white px-3 py-1">
+                                <a onclick="return confirm('do you realy want to delete it')" href="/delete/{{$profil->id}}">Delete</a>
+                            </button>
                     </tr>
-                    <tr class="bg-white">
-                        <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap ">
-                            Magic Mouse 2
-                        </th>
-                        <td class="px-6 py-4">
-                            Black
-                        </td>
-                        <td class="px-6 py-4">
-                            Accessories
-                        </td>
-                        <td class="px-6 py-4">
-                            $99
-                        </td>
-                    </tr>
+                    @endforeach
+                    
+                   
                 </tbody>
             </table>
         </div>
