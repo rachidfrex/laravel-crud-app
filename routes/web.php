@@ -15,8 +15,9 @@ use App\Http\Controllers\CompaniesConroller;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
+Route::get('/home', function () {
+    return response('Hello World', 404)
+                  ->header('Content-Type', 'text/plain');
 });
 Route::get('/', [ContactController::class,'index']);
 
@@ -30,7 +31,7 @@ Route::post('/update/traitement/', [ContactController::class, 'update_function_t
 Route::get('/delete/{id}', [ContactController::class , 'delete_function']);
 
 // companies routes 
-Route::get('/companies', [CompaniesConroller::class , 'companies_function']);
+Route::get('/companies', CompaniesConroller::class . 'companies_ function');
 Route::get('/viewcompanies/{id}', [CompaniesConroller::class, 'viewcompanies_function']);
 
 Route::get('/deleteCom/{id}', [CompaniesConroller::class , 'delete_function']);

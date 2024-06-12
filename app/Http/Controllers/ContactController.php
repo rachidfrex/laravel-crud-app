@@ -20,7 +20,7 @@ class ContactController extends Controller
             'Fnom'=>'required',
             'Lnom'=>'required',
             'email'=>'required|email',
-            'phone'=>'required',
+            'phone'=>'required|numeric ',
             'adress'=>'required',
             'selectOption'=>'required',
         ]);
